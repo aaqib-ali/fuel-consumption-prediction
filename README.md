@@ -43,3 +43,31 @@ docker-compose up -d --build -remove-orphans
 ```
 The above command will build the container before running it in a detached mode.
 
+### Run Tests
+The test are written and configured in containerized environment so that development environment or CI/CD pipelines can create, execute tests and destroy the containers.  
+Run the following command to execute the tests:-
+
+```
+docker-compose exec prediction-api pytest .
+```
+### Check the Status of an API
+Access the API using HTTP client of your choice like [Insomnia](https://insomnia.rest/) or [Postman](https://learning.postman.com/)
+
+```
+http://localhost:3000/status/
+```
+The above route show following response when API is running.
+
+```
+{
+  "status": "ok"
+}
+```
+### API Documentation
+Please visit the following URL to view the documentation. The documentation is powered by [Swagger UI](https://swagger.io/tools/swagger-ui/):-
+
+```
+http://localhost:3000/docs
+```
+
+
