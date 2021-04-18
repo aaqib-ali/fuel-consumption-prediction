@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  # machine learning prediction model using tensor flow.
+  fuel-consumption:
+    image: tensorflow/serving
+    container_name: mpg_prediction
+    ports:
+      - "8500:8500"
+      - "8501:8501"
+    volumes:
+      - ./fuel-consumption/model:/models
+      - ./fuel-consumption/serving_docker.config:/models/serving_docker.config
+    command: --model_config_file=/models/serving_docker.config
+    networks:
+      - ml-network
+
+networks:
+  ml-network:

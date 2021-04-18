@@ -31,3 +31,15 @@ The system consists of a reverse proxy, an API and Machine Learning backend syst
 <p align="center">
  <img width="600" height="600" src="./architecture/api_container.png">
 </p>
+
+## Setup Environment
+Install [Docker](https://www.docker.com/)
+
+### Build and Run
+Build the container instances using the following command:-
+
+```
+docker-compose up -d --build -remove-orphans
+```
+The above command will build the container before running it in a detached mode.
+
