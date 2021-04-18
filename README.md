@@ -1,9 +1,9 @@
 # Fuel Consumption prediction
 This repository contains a simple fuel consumption machine learning model with an api to expose predictions
-to consumer. The perpose of the repository is to demonstrate creating an api in a containerized environment
+to consumer. The purpose of the repository is to demonstrate creating an api in a containerized environment
 with tensorflow server.
 
-The RESTFUL API is developed using :-
+The RESTful Api is developed using :-
 * [Fast API](https://fastapi.tiangolo.com/)
 * [Uvicorn](https://www.uvicorn.org/)
 * [nginx](https://nginx.org/en/)
@@ -39,7 +39,7 @@ Install [Docker](https://www.docker.com/)
 Build the container instances using the following command:-
 
 ```
-docker-compose up -d --build -remove-orphans
+docker-compose up -d --build --remove-orphans
 ```
 The above command will build the container before running it in a detached mode.
 
@@ -69,5 +69,8 @@ Please visit the following URL to view the documentation. The documentation is p
 ```
 http://localhost:3000/docs
 ```
-
+## Further Improvements
+1. Handle exception elegantly when backend prediction model is down. For example: implement [exponential backoff](https://pypi.org/project/backoff/)
+2. Add logging. This simple exercise doesn't include any logging that is key requirement for commercial software systems. 
+3. Test quality can be improved by using testing api in isolation. Use of Fake, Stub or Mocks will isolate the prediction api from Tensorflow backend service in automated test environment.
 
